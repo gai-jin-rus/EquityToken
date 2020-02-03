@@ -8,12 +8,20 @@ A smart contract of a joint-stock company with the possibility of decentralized 
 The Etherium smart contract is an extension of the ERC 20 standard. The smart contract is designed to indicate the principle of fairness. Implementation with the help of blockchain technology allows capital tokens to work in strict mode, perform any process transparently using pre-created software code. The agreement standard allows you to request information about the project and the share capital. Decentralized management of the company, distribution of profits, tracking the progress of the project and its results.
 Methods
 ## The contract is divided into four chapters:
-### I.	Chapter of the ERC20 standard and related functions.
-### II.	Chapter inclusion and exclusion of members of the Board of Directors.
-### III.	Chapter of the ballot, the conclusion of the voting results, the query on the database the results of past polls.
-### IV.	Chapter of the payment of dividends.
+ I.	Chapter. The ERC20 standard and related functions.
+	
+ II.	Chapter. Inclusion and exclusion of members of the Board of Directors.
+	
+ III.	Chapter. The ballot, the conclusion of the voting results, the query on the database the results of past votes.
+	
+ IV.	Chapter. The payment of dividends.
 
-### I.	The ERC20 standard is filled with standard functions for transferring tokens from one holder to another.
+
+
+
+
+### Chapter I.	
+### The ERC20 standard is filled with standard functions for transferring tokens from one holder to another.
 ``` solidity
 function balanceOf(address tokenOwner) public view returns (uint256 amount); 
 ```
@@ -35,7 +43,8 @@ The function added a global (mapping) variable with a time stamp for the transit
 event Transfer(address indexed _from, address indexed to, uint256 tokens);
 event Approval(address indexed tokenOwner, address indexed spender, uint256 tokens);
 ``` 
-### II.	Inclusion and exclusion of members of the Board of Directors.
+### Chapter II.	
+### Inclusion and exclusion of members of the Board of Directors.
 **projectOwner**
 ``` solidity
 function projectOwner() external view returns (address) 
@@ -80,7 +89,8 @@ function newOwnerInvite(address _new_owner) public
 ```
 Only the project owner can invite a new member of the Board of Directors. This function starts a timer for a new Board member to make a decision. You can invite an unlimited number of Board Members in order of priority.
 
-### III.	Vote.
+### Chapter III.	
+### Vote.
 
 **createVote**
 ```solidity
@@ -129,7 +139,8 @@ function showVotingDataBase () public view returns (uint256 vote_ID, uint256 Res
 Publishes the result of calling the previous function. The reason is that EVM cannot generate an array of global variables and display them as an array in a single function. To reset the published voting database, you must use the getVotingDataBase() function to request information by the number "0".
 Return uint256, uint256, uint256, uint256, uint256
 
-### IV.	Payment of dividends.
+### Chapter IV.	
+### Payment of dividends.
 
 **dividendPaymentsTime**
 ```solidity
@@ -164,7 +175,7 @@ function depositEther() external payable
 ```
 Only the contract owner can make a deposit to the contract balance.
 
-**Accept ETH**
+**accept ETH**
 ```solidity
 function() external payable
 ```
